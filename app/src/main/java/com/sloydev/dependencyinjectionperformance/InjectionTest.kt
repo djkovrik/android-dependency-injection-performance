@@ -1,9 +1,6 @@
 package com.sloydev.dependencyinjectionperformance
 
-import com.sloydev.dependencyinjectionperformance.dagger2.DaggerJavaDaggerComponent
-import com.sloydev.dependencyinjectionperformance.dagger2.DaggerKotlinDaggerComponent
-import com.sloydev.dependencyinjectionperformance.dagger2.JavaDaggerComponent
-import com.sloydev.dependencyinjectionperformance.dagger2.KotlinDaggerComponent
+import com.sloydev.dependencyinjectionperformance.dagger2.*
 import com.sloydev.dependencyinjectionperformance.koin.koinConstructorKotlinModule
 import com.sloydev.dependencyinjectionperformance.koin.koinJavaModule
 import com.sloydev.dependencyinjectionperformance.koin.koinKotlinModule
@@ -19,6 +16,7 @@ import javax.inject.Inject
 class InjectionTest : KoinComponent {
 
     private val kotlinDaggerTest = KotlinDaggerTest()
+    private val kotlinConstructorDaggerTest = KotlinConstructorDaggerTest()
     private val javaDaggerTest = JavaDaggerTest()
 
     private val rounds = 100
@@ -94,6 +92,7 @@ class InjectionTest : KoinComponent {
     private fun daggerTest(): LibraryResult {
         log("Running Dagger...")
         lateinit var kotlinComponent: KotlinDaggerComponent
+        lateinit var kotlinConstructorComponent: KotlinConstructorDaggerComponent
         lateinit var javaComponent: JavaDaggerComponent
         return LibraryResult("Dagger", mapOf(
             Variant.JAVA to runTest(
@@ -103,6 +102,10 @@ class InjectionTest : KoinComponent {
             Variant.KOTLIN to runTest(
                 setup = { kotlinComponent = DaggerKotlinDaggerComponent.create() },
                 test = { kotlinComponent.inject(kotlinDaggerTest) }
+            ),
+            Variant.CONSTRUCTOR_KOTLIN to runTest(
+                setup = { kotlinConstructorComponent = DaggerKotlinConstructorDaggerComponent.create() },
+                test = { kotlinConstructorComponent.inject(kotlinConstructorDaggerTest) }
             )
         ))
     }
@@ -115,5 +118,10 @@ class InjectionTest : KoinComponent {
     class JavaDaggerTest {
         @Inject
         lateinit var daggerFib8: FibonacciJava.Fib8
+    }
+
+    class KotlinConstructorDaggerTest {
+        @Inject
+        lateinit var daggerFib8: Fib8
     }
 }
