@@ -8,8 +8,6 @@ import com.sloydev.dependencyinjectionperformance.dagger2.DaggerJavaDaggerCompon
 import com.sloydev.dependencyinjectionperformance.dagger2.DaggerKotlinDaggerComponent
 import com.sloydev.dependencyinjectionperformance.dagger2.JavaDaggerComponent
 import com.sloydev.dependencyinjectionperformance.dagger2.KotlinDaggerComponent
-import com.sloydev.dependencyinjectionperformance.katana.katanaJavaModule
-import com.sloydev.dependencyinjectionperformance.katana.katanaKotlinModule
 import com.sloydev.dependencyinjectionperformance.koin.koinJavaModule
 import com.sloydev.dependencyinjectionperformance.koin.koinKotlinModule
 import org.kodein.di.Kodein
@@ -19,10 +17,6 @@ import org.koin.core.KoinComponent
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.core.get
-import org.rewedigital.katana.Component
-import org.rewedigital.katana.Katana
-import org.rewedigital.katana.android.environment.AndroidEnvironmentContext
-import org.rewedigital.katana.android.environment.AndroidEnvironmentContext.Profile.SPEED
 import javax.inject.Inject
 
 class InjectionTest : KoinComponent {
@@ -36,7 +30,6 @@ class InjectionTest : KoinComponent {
         val results = listOf(
             koinTest(),
             kodeinTest(),
-            katanaTest(),
             customTest(),
             daggerTest()
         )
@@ -104,22 +97,6 @@ class InjectionTest : KoinComponent {
             Variant.JAVA to runTest(
                 setup = { kodein = Kodein { import(kodeinKotlinModule) } },
                 test = { kodein.direct.instance<Fib8>() }
-            )
-        ))
-    }
-
-    private fun katanaTest(): LibraryResult {
-        log("Running Katana...")
-        Katana.environmentContext = AndroidEnvironmentContext(profile = SPEED)
-        lateinit var component: Component
-        return LibraryResult("Katana", mapOf(
-            Variant.KOTLIN to runTest(
-                setup = { component = Component(modules = listOf(katanaKotlinModule)) },
-                test = { component.injectNow<Fib8>() }
-            ),
-            Variant.JAVA to runTest(
-                setup = { component = Component(modules = listOf(katanaJavaModule)) },
-                test = { component.injectNow<FibonacciJava.Fib8>() }
             )
         ))
     }
