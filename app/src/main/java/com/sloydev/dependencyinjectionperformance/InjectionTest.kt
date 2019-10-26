@@ -57,7 +57,7 @@ class InjectionTest : KoinComponent {
                         modules(koinJavaModule)
                     }
                 },
-                test = { get<FibonacciJava.Fib8>() },
+                test = { get<FibonacciJava.Fib18>() },
                 teardown = { stopKoin() }
             ),
             Variant.KOTLIN to runTest(
@@ -66,7 +66,7 @@ class InjectionTest : KoinComponent {
                         modules(koinKotlinModule)
                     }
                 },
-                test = { get<Fib8>() },
+                test = { get<Fib18>() },
                 teardown = { stopKoin() }
             ),
             Variant.CONSTRUCTOR_KOTLIN to runTest(
@@ -75,7 +75,7 @@ class InjectionTest : KoinComponent {
                         modules(koinConstructorKotlinModule)
                     }
                 },
-                test = { get<Fib8>() },
+                test = { get<Fib18>() },
                 teardown = { stopKoin() }
             )
         ))
@@ -87,11 +87,11 @@ class InjectionTest : KoinComponent {
         return LibraryResult("Kodein", mapOf(
             Variant.JAVA to runTest(
                 setup = { kodein = Kodein { import(kodeinKotlinModule) } },
-                test = { kodein.direct.instance<Fib8>() }
+                test = { kodein.direct.instance<Fib18>() }
             ),
             Variant.KOTLIN to runTest(
                 setup = { kodein = Kodein { import(kodeinKotlinModule) } },
-                test = { kodein.direct.instance<Fib8>() }
+                test = { kodein.direct.instance<Fib18>() }
             )
         ))
     }
@@ -128,7 +128,7 @@ class InjectionTest : KoinComponent {
                     }
                     Toothpick.inject(this, scope)
                 },
-                test = { scope.getInstance(FibonacciJavaTP.Fib8::class.java) },
+                test = { scope.getInstance(FibonacciJavaTP.Fib18::class.java) },
                 teardown = { Toothpick.closeScope("java") }
             ),
             Variant.KOTLIN to runTest(
@@ -138,7 +138,7 @@ class InjectionTest : KoinComponent {
                     }
                     Toothpick.inject(this, scope)
                 },
-                test = { scope.getInstance(Fib8::class.java) },
+                test = { scope.getInstance(Fib18::class.java) },
                 teardown = { Toothpick.closeScope("kotlin") }
             ),
             Variant.CONSTRUCTOR_KOTLIN to runTest(
@@ -157,21 +157,21 @@ class InjectionTest : KoinComponent {
 
     class KotlinDaggerTest {
         @Inject
-        lateinit var daggerFib8: Fib8
+        lateinit var daggerFib18: Fib18
     }
 
     class JavaDaggerTest {
         @Inject
-        lateinit var daggerFib8: FibonacciJava.Fib8
+        lateinit var daggerFib18: FibonacciJava.Fib18
     }
 
     class KotlinConstructorDaggerTest {
         @Inject
-        lateinit var daggerFib8: Fib8
+        lateinit var daggerFib18: Fib18
     }
 
     class KotlinConstructorToothpickTest {
         @Inject
-        lateinit var daggerFib8: Fib8
+        lateinit var daggerFib18: Fib18
     }
 }
