@@ -97,11 +97,11 @@ class InjectionTest : KoinComponent {
     }
 
     private fun daggerTest(): LibraryResult {
-        log("Running Dagger...")
+        log("Running Dagger 2...")
         lateinit var kotlinComponent: KotlinDaggerComponent
         lateinit var kotlinConstructorComponent: KotlinConstructorDaggerComponent
         lateinit var javaComponent: JavaDaggerComponent
-        return LibraryResult("Dagger", mapOf(
+        return LibraryResult("Dagger 2", mapOf(
             Variant.JAVA to runTest(
                 setup = { javaComponent = DaggerJavaDaggerComponent.create() },
                 test = { javaComponent.inject(javaDaggerTest) }
