@@ -150,7 +150,8 @@ class InjectionTest : KoinComponent {
                     }
                     Toothpick.inject(this, scope)
                 },
-                test = { scope.getInstance(KotlinConstructorToothpickTest::class.java) }
+                test = { scope.getInstance(KotlinConstructorToothpickTest::class.java) },
+                teardown = { Toothpick.closeScope("constructor") }
             )
         ))
     }
