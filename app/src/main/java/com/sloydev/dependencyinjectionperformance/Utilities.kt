@@ -8,7 +8,7 @@ import kotlin.system.measureNanoTime
 typealias Milliseconds = Double
 
 data class LibraryResult(val injectorName: String, val results: Map<Variant, TestResult>) {
-    operator fun get(variant: Variant) = results[variant]!!
+    operator fun get(variant: Variant) = results[variant]
 }
 
 data class TestResult(
