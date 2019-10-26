@@ -35,15 +35,23 @@ class MainActivity : AppCompatActivity() {
         reportOnScreen(results)
     }
 
+    @Suppress("RemoveSingleExpressionStringTemplate")
     private fun reportOnLogcat(results: List<LibraryResult>) {
-        log("Done!\n")
-        log("\n")
-        log("${Build.BRAND} ${Build.DEVICE} with Android ${Build.VERSION.RELEASE}\n")
-        log("\n")
-        log("Library | Setup Java | Setup Kotlin | Inject Java | Inject Kotlin\n")
-        log("--- | ---:| ---:| ---:| ---:\n")
-        results.forEach {
-            log("**${it.injectorName}** | ${it[Variant.JAVA]?.startupTime?.median().format()} | ${it[Variant.KOTLIN]?.startupTime?.median().format()}  | ${it[Variant.JAVA]?.injectionTime?.median().format()} | ${it[Variant.KOTLIN]?.injectionTime?.median().format()}\n")
+        log("Done!")
+        log("${Build.BRAND} ${Build.DEVICE} with Android ${Build.VERSION.RELEASE}")
+        log(" ")
+        log("Library | Setup Java | Setup Kotlin | Setup Kotlin Constructor | Inject Java | Inject Kotlin | Inject Kotlin Constructor")
+        log("--- | ---:| ---:| ---:| ---:| ---:| ---:")
+        results.forEach { result ->
+            log(
+                "**${result.injectorName}** | " +
+                        "${result[Variant.JAVA]?.startupTime?.median().format()} | " +
+                        "${result[Variant.KOTLIN]?.startupTime?.median().format()} | " +
+                        "${result[Variant.CONSTRUCTOR_KOTLIN]?.startupTime?.median().format()} | " +
+                        "${result[Variant.JAVA]?.injectionTime?.median().format()} | " +
+                        "${result[Variant.KOTLIN]?.injectionTime?.median().format()} |" +
+                        "${result[Variant.CONSTRUCTOR_KOTLIN]?.injectionTime?.median().format()}"
+            )
         }
     }
 

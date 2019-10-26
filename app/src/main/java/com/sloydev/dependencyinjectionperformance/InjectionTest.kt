@@ -1,10 +1,10 @@
 package com.sloydev.dependencyinjectionperformance
 
-import android.os.Build
 import com.sloydev.dependencyinjectionperformance.dagger2.DaggerJavaDaggerComponent
 import com.sloydev.dependencyinjectionperformance.dagger2.DaggerKotlinDaggerComponent
 import com.sloydev.dependencyinjectionperformance.dagger2.JavaDaggerComponent
 import com.sloydev.dependencyinjectionperformance.dagger2.KotlinDaggerComponent
+import com.sloydev.dependencyinjectionperformance.koin.koinConstructorKotlinModule
 import com.sloydev.dependencyinjectionperformance.koin.koinJavaModule
 import com.sloydev.dependencyinjectionperformance.koin.koinKotlinModule
 import org.kodein.di.Kodein
@@ -23,27 +23,12 @@ class InjectionTest : KoinComponent {
 
     private val rounds = 100
 
-    fun runTests(): List<LibraryResult> {
-        val results = listOf(
+    fun runTests(): List<LibraryResult> =
+        listOf(
             koinTest(),
             kodeinTest(),
             daggerTest()
         )
-        reportMarkdown(results)
-        return results
-    }
-
-    private fun reportMarkdown(results: List<LibraryResult>) {
-        log("Done!")
-        log(" ")
-        log("${Build.BRAND} ${Build.DEVICE} with Android ${Build.VERSION.RELEASE}")
-        log(" ")
-        log("Library | Setup Java | Setup Kotlin | Inject Java | Inject Kotlin")
-        log("--- | ---:| ---:| ---:| ---:")
-        results.forEach { result ->
-            log("**${result.injectorName}** | ${result[Variant.JAVA]?.startupTime?.median().format()} | ${result[Variant.KOTLIN]?.startupTime?.median().format()}  | ${result[Variant.JAVA]?.injectionTime?.median().format()} | ${result[Variant.KOTLIN]?.injectionTime?.median().format()}")
-        }
-    }
 
     private fun runTest(
         setup: () -> Unit,
@@ -74,6 +59,15 @@ class InjectionTest : KoinComponent {
                 setup = {
                     startKoin {
                         modules(koinKotlinModule)
+                    }
+                },
+                test = { get<Fib8>() },
+                teardown = { stopKoin() }
+            ),
+            Variant.CONSTRUCTOR_KOTLIN to runTest(
+                setup = {
+                    startKoin {
+                        modules(koinConstructorKotlinModule)
                     }
                 },
                 test = { get<Fib8>() },
