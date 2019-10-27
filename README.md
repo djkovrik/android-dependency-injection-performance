@@ -78,6 +78,22 @@ Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject 
 
 
 ### DOOGEE x5max with Android 6.0.1
+
+#### Fib8
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 4.75 ms | 4.68 ms | 4.10 ms | 0.42 ms | 0.48 ms |1.11 ms
+**Kodein** | 20.80 ms | 20.81 ms |  -  | 1.01 ms | 1.01 ms | - 
+**Toothpick** | 2.97 ms | 2.97 ms | 0.71 ms | 0.09 ms | 0.09 ms |0.16 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 0.03 ms | 0.04 ms |0.02 ms
+
+#### Fib16
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 4.77 ms | 3.63 ms | 3.76 ms | 16.85 ms | 16.64 ms |63.29 ms
+**Kodein** | 26.41 ms | 26.34 ms |  -  | 84.20 ms | 84.54 ms | - 
+**Toothpick** | 4.07 ms | 2.98 ms | 0.71 ms | 4.51 ms | 4.55 ms |6.98 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 1.44 ms | 1.68 ms |0.98 ms
   
 #### Fib18  
 Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
@@ -88,8 +104,24 @@ Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject 
 **Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 3.79 ms | 4.39 ms |2.59 ms
 
 ### Xiaomi Mi4 with Android 6.0.1
-  
-#### Fib18  
+
+#### Fib8
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 3.46 ms | 3.31 ms | 3.43 ms | 0.35 ms | 0.36 ms |1.44 ms
+**Kodein** | 23.98 ms | 22.09 ms |  -  | 1.06 ms | 1.01 ms | - 
+**Toothpick** | 1.88 ms | 1.90 ms | 0.54 ms | 0.09 ms | 0.10 ms |0.14 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 0.04 ms | 0.05 ms |0.03 ms
+
+#### Fib16
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 3.28 ms | 3.77 ms | 3.88 ms | 17.06 ms | 17.32 ms |65.94 ms
+**Kodein** | 23.90 ms | 24.01 ms |  -  | 69.41 ms | 70.39 ms | - 
+**Toothpick** | 1.68 ms | 1.82 ms | 0.52 ms | 3.61 ms | 3.89 ms |5.68 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 1.52 ms | 1.84 ms |1.05 ms
+
+#### Fib18
 Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
 --- | ---:| ---:| ---:| ---:| ---:| ---:
 **Koin** | 3.12 ms | 2.71 ms | 3.63 ms | 44.24 ms | 48.90 ms |173.91 ms
@@ -99,6 +131,22 @@ Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject 
 
 
 ### Xiaomi Mi8 with Android 9
+
+#### Fib8 
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 0.34 ms | 0.32 ms | 0.31 ms | 0.04 ms | 0.04 ms |0.08 ms
+**Kodein** | 3.73 ms | 3.59 ms |  -  | 0.07 ms | 0.06 ms | - 
+**Toothpick** | 0.34 ms | 0.31 ms | 0.15 ms | 0.04 ms | 0.02 ms |0.02 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 0.03 ms | 0.02 ms |0.01 ms
+
+#### Fib16
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 0.34 ms | 0.33 ms | 0.40 ms | 1.01 ms | 1.10 ms |4.58 ms
+**Kodein** | 14.69 ms | 14.11 ms |  -  | 12.72 ms | 12.48 ms | - 
+**Toothpick** | 1.62 ms | 1.25 ms | 0.68 ms | 1.76 ms | 1.32 ms |1.87 ms
+**Dagger 2** | 0.01 ms | 0.02 ms | 0.01 ms | 0.48 ms | 0.54 ms |0.19 ms
   
 #### Fib18 
 Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
