@@ -17,7 +17,7 @@ Each test injects one of this dependencies 100 times and prints the maximum time
 
 The project contains an Android application that run the tests on its onCreate and prints the result to the Logcat.
 
-The actual test is implemented in the class [InjectionTest.kt](https://github.com/Sloy/android-dependency-injection-performance/blob/master/app/src/main/java/com/sloydev/dependencyinjectionperformance/InjectionTest.kt)
+The actual test is implemented in the class [InjectionTest.kt](https://github.com/djkovrik/android-dependency-injection-performance/blob/master/app/src/main/java/com/sloydev/dependencyinjectionperformance/InjectionTest.kt)
 
 c-tor means constructor injection.
 
