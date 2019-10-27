@@ -26,7 +26,6 @@ c-tor means constructor injection.
 ### Meizu M6 Note with Android 7.1.2
 
 #### Fib8
-
 Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
 --- | ---:| ---:| ---:| ---:| ---:| ---:
 **Koin** | 1.33 ms | 1.16 ms | 1.15 ms | 0.12 ms | 0.12 ms |0.45 ms
@@ -35,7 +34,6 @@ Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject 
 **Dagger 2** | 0.01 ms | 0.01 ms | 0.01 ms | 0.09 ms | 0.07 ms |0.05 ms
 
 #### Fib16
-
 Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
 --- | ---:| ---:| ---:| ---:| ---:| ---:
 **Koin** | 1.21 ms | 1.23 ms | 1.10 ms | 4.44 ms | 4.56 ms |19.70 ms
@@ -55,7 +53,6 @@ Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject 
 ### Google Pixel 3 with Android 10
 
 #### Fib8
-
 Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
 --- | ---:| ---:| ---:| ---:| ---:| ---:
 **Koin** | 0.35 ms | 0.33 ms | 0.33 ms | 0.10 ms | 0.09 ms |0.11 ms
@@ -64,7 +61,6 @@ Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject 
 **Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 0.03 ms | 0.03 ms |0.01 ms
 
 #### Fib16
-
 Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
 --- | ---:| ---:| ---:| ---:| ---:| ---:
 **Koin** | 0.32 ms | 0.31 ms | 0.31 ms | 1.00 ms | 1.02 ms |3.16 ms
@@ -79,3 +75,45 @@ Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject 
 **Kodein** | 3.90 ms | 3.74 ms |  -  | 9.80 ms | 9.68 ms | - 
 **Toothpick** | 0.40 ms | 0.38 ms | 0.22 ms | 1.04 ms | 1.10 ms |1.89 ms
 **Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 0.26 ms | 0.29 ms |0.15 ms
+
+
+### DOOGEE x5max with Android 6.0.1
+  
+#### Fib18  
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 4.81 ms | 3.79 ms | 3.74 ms | 41.07 ms | 41.81 ms |151.78 ms
+**Kodein** | 26.08 ms | 21.15 ms |  -  | 232.86 ms | 184.80 ms | - 
+**Toothpick** | 3.14 ms | 3.10 ms | 0.71 ms | 11.39 ms | 12.04 ms |18.79 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 3.79 ms | 4.39 ms |2.59 ms
+
+### Xiaomi Mi4 with Android 6.0.1
+  
+#### Fib18  
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 3.12 ms | 2.71 ms | 3.63 ms | 44.24 ms | 48.90 ms |173.91 ms
+**Kodein** | 23.84 ms | 23.80 ms |  -  | 191.14 ms | 202.70 ms | - 
+**Toothpick** | 3.93 ms | 3.94 ms | 1.10 ms | 20.63 ms | 22.80 ms |33.77 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 8.52 ms | 10.58 ms |6.24 ms
+
+
+### Xiaomi Mi8 with Android 9
+  
+#### Fib18 
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 0.40 ms | 0.36 ms | 0.35 ms | 3.27 ms | 3.17 ms |10.64 ms
+**Kodein** | 4.29 ms | 4.16 ms |  - | 9.63 ms | 9.57 ms | - 
+**Toothpick** | 0.42 ms | 0.37 ms | 0.17 ms | 1.17 ms | 1.21 ms |2.13 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 0.21 ms | 0.34 ms |0.17 ms
+
+### OnePlus6 with Android 9
+  
+#### Fib18 
+Library | Setup Java | Setup Kotlin | Setup Kotlin c-tor | Inject Java | Inject Kotlin | Inject Kotlin c-tor
+--- | ---:| ---:| ---:| ---:| ---:| ---:
+**Koin** | 0.36 ms | 0.34 ms | 0.31 ms | 2.78 ms | 2.73 ms |9.38 ms
+**Kodein** | 3.87 ms | 3.82 ms |  -  | 8.65 ms | 8.72 ms | - 
+**Toothpick** | 0.38 ms | 0.32 ms | 0.16 ms | 1.03 ms | 1.07 ms |1.90 ms
+**Dagger 2** | 0.00 ms | 0.00 ms | 0.00 ms | 0.19 ms | 0.24 ms |0.16 ms
